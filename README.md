@@ -1,6 +1,8 @@
 # LLM
 
-micrograd_from_scratch: making the Value class :
+micrograd_from_scratch:
+
+1. making the Value class :
 
 **Notes :**
 - _op : is used for showing the operations (it will be executed in graph. In the Value class, it's just the internal attribute.)
