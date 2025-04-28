@@ -1,6 +1,6 @@
 # LLM
 
-micrograd_from_scratch:
+## micrograd_from_scratch:
 
 1. making the Value class :
 
@@ -13,6 +13,26 @@ micrograd_from_scratch:
 - assert isinstance(other, (int, float)), 'only supporting int/float powers for now' : is used to emphasize the type and pop up AssertionError 'only supporting int/float powers for now'.
 - out._backward = _backward : is used to just store the funcition. We do not want to execute the function!
 - backward(self) : is used to collect the nodes
+ **Example:**
+a = Value(2.0,label='a')
+
+b = Value(-3, label= 'b')
+
+q = a+b ; q.label= 'q'
+
+print(f' q is equal to : {q}\n The operation has been used is: {q._op}\n The children of q are: {q._prev}\n The label of q is: {q.label}')
+
+print(f'The data of a and b are: {a.data, b.data}')
+
+Outputs: 
+q is equal to : Value(data=-1.0)
+The operation has been used is: 
+The children of q are: {'+'}
+The label of q is: q
+The data of a and b are: (2.0, -3)
+
+![Add](https://github.com/user-attachments/assets/816c445c-1210-49a8-ad50-78e80d919d93)
+
 
 
 2.makemore: Multilayer Perceptron: strating by two characters and predict the third one (Neural Network)
