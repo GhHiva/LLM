@@ -114,7 +114,8 @@ The data of a and b are: (2.0, -3)
   
      a._backward()
   
-     draw_dot(l).render('ChainWithGradBack', cleanup=True)\\
+     draw_dot(l).render('ChainWithGradBack', cleanup=True)
+  
      Output: ![ChainWithGradBack](https://github.com/user-attachments/assets/b2962bf9-cffd-417a-94c0-8fe829550fbd)
 
   
