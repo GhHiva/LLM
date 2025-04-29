@@ -80,14 +80,23 @@ The data of a and b are: (2.0, -3)
   ## manually insert the gradients:
   
      l.grad= 1 (assumption)
+  
      f.grad= 1 ($\frac{d l}{d f} = 1+ \frac{d e}{d f}=1$)
-     d.grad= 5
+  
+     d.grad= 5 ($\frac{d l}{d d} = \frac{d f}{d d}+ \frac{d e}{d d}= \frac{d c}{d d} \cdot d + c \cdot \frac{d d}{d d}+0= 5 $)
+  
      e.grad= 1
+  
      c.grad= -1
+  
      b.grad= 5
+  
      a.grad= 1
 
 draw_dot(l).render('ChainWithGrad', cleanup=True)
+
+Output: ![ChainWithGrad](https://github.com/user-attachments/assets/28532efb-4eba-4ab5-bdf0-36bf6c477190)
+
 
 2.makemore: Multilayer Perceptron: strating by two characters and predict the third one (Neural Network)
 
