@@ -40,7 +40,8 @@ The data of a and b are: (2.0, -3)
 
 ![Add](https://github.com/user-attachments/assets/816c445c-1210-49a8-ad50-78e80d919d93)
 
-**Drawing the Chain of Calculations:**
+## Drawing the Chain of Calculations:
+
 **Notes:**
 - `str(n)` vs `str(id(n))`:
     - `str(n)` calls the `__str__` or `__repr__` method of the object `n`. In class Value, we defined __repr__ so we have `Value(data=5.0)`. => NOT guaranteed unique (two different nodes with same data will have same string)
