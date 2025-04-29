@@ -2,7 +2,7 @@
 
 ## micrograd_from_scratch:
 
-1. making the Value class :
+1. making the **Value class** :
 
 **Notes :**
 - _op : is used for showing the operations (it will be executed in graph. In the Value class, it's just the internal attribute.)
@@ -40,7 +40,20 @@ The data of a and b are: (2.0, -3)
 
 ![Add](https://github.com/user-attachments/assets/816c445c-1210-49a8-ad50-78e80d919d93)
 
+**Drawing the Chain of Calculations:**
+**Notes:**
+- str(n) vs str(id(n)):
+    - `str(n)` calls the `__str__` or `__repr__` method of the object `n`. In class Value, we defined __repr__ so we have `Value(data=5.0)`. => NOT guaranteed unique (two different nodes with same data will have same string)
 
+    - `id(n)` gives the `memory address of the object`, as an integer.
+      
+    - `str(id(n))` turns that memory address into a `string`, like: '140435943962768'. => Always unique (for different objects)
+
+      
+- '{%s | data %.4f | grad %.4f}' % (n.label, n.data, n.grad):
+- shapes in Digraph:
+- str(id(n))+ n._op vs n._op:
+- 
 
 2.makemore: Multilayer Perceptron: strating by two characters and predict the third one (Neural Network)
 
