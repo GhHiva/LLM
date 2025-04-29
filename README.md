@@ -52,11 +52,31 @@ The data of a and b are: (2.0, -3)
       
 - `'{%s | data %.4f | grad %.4f}' % (n.label, n.data, n.grad)`: It's an old form of formatting. The new one is `'{{{n.label}| data {n.data:.4f} | grad {n.grad:.4f}}}'`.
    - %s : Insert a string
-- shapes in Digraph:
+
 - `dot.edge(str(id(n))+ n._op, str(id(n)))` vs `dot.edge(n._op, str(id(n)))`:
    - `dot.edge(n._op, str(id(n)))`: n._op is just the symbol not the unique node id. So it needs to specify which node id you want to work on. Without the unique name id for all same operations in the chain we just have one node and it crash the graph!
    - `dot.edge(str(id(n))+ n._op, str(id(n)))`: str(id(n))+ n._op makes the unique id we need to have! It fakes the unique id for each operation by adding the node name. For example:
       - "Value(data=5.0)+" and "Value(data=7.0)+" have the same operation `+` but identified by two different nodes.
+
+  **Example:**
+  a = Value(2.0,label='a')
+  
+  b = Value(-3, label= 'b')
+  
+  c = Value(5, label= 'c')
+  
+  e = Value(10, label= 'e')
+  
+  d = a+b ; d.label= 'd'
+  
+  f = c*d ; f.label= 'f'
+  
+  l = f+e ; l.label= 'l'
+  
+  draw_dot(l)
+  
+  Output: ![Chain](https://github.com/user-attachments/assets/98bd8e5b-3c49-48cc-b589-57ca97c32b3e)
+
   
 
 2.makemore: Multilayer Perceptron: strating by two characters and predict the third one (Neural Network)
