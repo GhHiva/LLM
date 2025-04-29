@@ -10,7 +10,7 @@
 - `label` : is used for labeling the nodes
 - `self._backward = lambda: None`, It's just the empty function!
 - `isinstance(other, Value)`: is used to make sure other.data has Value type.
-- `assert isinstance(other, (int, float)), 'only supporting int/float powers for now'` : is used to emphasize the type and pop up AssertionError 'only supporting int/float powers for now'.
+- `assert isinstance(other, (int, float)), 'only supporting int/float powers for now'` : is used to emphasize the type and pop up AssertionError 'only supporting int/float powers for now' if the verdict did not satisfied.
 - `out._backward` = _backward : is used to just store the funcition. We do not want to execute the function!
 - `backward(self)` : is used to collect the nodes
  
@@ -42,7 +42,7 @@ The data of a and b are: (2.0, -3)
 
 **Drawing the Chain of Calculations:**
 **Notes:**
-- `str(n) vs str(id(n))`:
+- `str(n)` vs `str(id(n))`:
     - `str(n)` calls the `__str__` or `__repr__` method of the object `n`. In class Value, we defined __repr__ so we have `Value(data=5.0)`. => NOT guaranteed unique (two different nodes with same data will have same string)
 
     - `id(n)` gives the `memory address of the object`, as an integer.
@@ -50,9 +50,13 @@ The data of a and b are: (2.0, -3)
     - `str(id(n))` turns that memory address into a `string`, like: '140435943962768'. => Always unique (for different objects)
 
       
-- `'{%s | data %.4f | grad %.4f}' % (n.label, n.data, n.grad)`:
+- `'{%s | data %.4f | grad %.4f}' % (n.label, n.data, n.grad)`: It's an old form of formatting. The new one is `'{{{n.label}| data {n.data:.4f} | grad {n.grad:.4f}}}'`.
+   - %s : Insert a string
 - shapes in Digraph:
-- `str(id(n))+ n._op vs n._op`:
+- `dot.edge(str(id(n))+ n._op, str(id(n)))` vs `dot.edge(n._op, str(id(n)))`:
+   - `dot.edge(n._op, str(id(n)))`: n._op is just the symbol not the unique node id. So it needs to specify which node id you want to work on. Without the unique name id for all same operations in the chain we just have one node and it crash the graph!
+   - `dot.edge(str(id(n))+ n._op, str(id(n)))`: str(id(n))+ n._op makes the unique id we need to have! It fakes the unique id for each operation by adding the node name. For example:
+      - "Value(data=5.0)+" and "Value(data=7.0)+" have the same operation `+` but identified by two different nodes.
   
 
 2.makemore: Multilayer Perceptron: strating by two characters and predict the third one (Neural Network)
