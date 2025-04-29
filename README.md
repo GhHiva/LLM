@@ -77,7 +77,17 @@ The data of a and b are: (2.0, -3)
   
   Output: ![Chain](https://github.com/user-attachments/assets/98bd8e5b-3c49-48cc-b589-57ca97c32b3e)
 
+  ## manually insert the gradients:
   
+     l.grad= 1 (assumption)
+     f.grad= 1 ($\frac{d l}{d f} = 1+ \frac{d e}{d f}=1$)
+     d.grad= 5
+     e.grad= 1
+     c.grad= -1
+     b.grad= 5
+     a.grad= 1
+
+draw_dot(l).render('ChainWithGrad', cleanup=True)
 
 2.makemore: Multilayer Perceptron: strating by two characters and predict the third one (Neural Network)
 
