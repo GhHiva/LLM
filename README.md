@@ -97,16 +97,24 @@ The data of a and b are: (2.0, -3)
 
      Output: ![ChainWithGrad](https://github.com/user-attachments/assets/85526321-e42a-4f9e-ab12-edad14dbc9be)
 
-  ## inserting gradient by ._backward function in Value class:
+  ## inserting gradient by ._backward functions from Value class:
      l.grad=1
+  
      l._backward()
+  
      f._backward()
+  
      d._backward()
+  
      e._backward()
+  
      c._backward()
+  
      b._backward()
+  
      a._backward()
-     draw_dot(l).render('ChainWithGradBack', cleanup=True)
+  
+     draw_dot(l).render('ChainWithGradBack', cleanup=True)\\
      Output: ![ChainWithGradBack](https://github.com/user-attachments/assets/b2962bf9-cffd-417a-94c0-8fe829550fbd)
 
   
