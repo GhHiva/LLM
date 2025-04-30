@@ -2,7 +2,7 @@
 
 ## micrograd_from_scratch:
 
-1. making the **Value class** :
+1. Creating the **Value class** :
 
 **Notes :**
 - `_op` : is used for showing the operations (it will be executed in graph. In the Value class, it's just the internal attribute.)
@@ -118,12 +118,33 @@ The data of a and b are: (2.0, -3)
      draw_dot(l).render('ChainWithGradBack', cleanup=True)
   
      Output: ![ChainWithGradBack](https://github.com/user-attachments/assets/b2962bf9-cffd-417a-94c0-8fe829550fbd)
-
+  ## Needed steps for optimizing:
   
-  
+  2. Creating the **Neuron class** :
+     
+     **Notes:**
+     
+     - We defined the operations in Value class and how calculating their gradients. Now we need to make the nodes to start by initializing the weights and bias.
+     - w is the weight node which its dimensional depends to the input lenght vector.
+     - b is a bias node which is one dimensional.
+     - w and b are the random vectors which obey of uniform distribution.
+     - Finding $ w \cdot x +b = \sum_{i=1}^{i= \text{ dimension }} +b $.
+     - tanh(w \cdot x +b).
 
 
+  4. Creating the **Layer class** :
+     
+     **Notes:**
+     
+     - After creating the nodes, the turn is for making the layers which are pushing the inputs forward to the outputs.
+     - Determining the number of outputs we expect from the input.
+     - My description:
+        $$((W^{(1)}, b^{(1)}),(W^{(2)}, b^{(2)}), \cdots, (W^{(s)}, b^{(s)})), $$
+      each element of above set acts on $x$ (the number of outputs we expect is $s$). 
+     
 
+
+_________________________________________________________
 2.makemore: Multilayer Perceptron: strating by two characters and predict the third one (Neural Network)
 
 
