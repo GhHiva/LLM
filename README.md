@@ -129,7 +129,7 @@ The data of a and b are: (2.0, -3)
      - b is a bias node which is one dimensional.
      - w and b are the random vectors which obey of uniform distribution.
      - Finding $`w \cdot x +b = \sum_{i=1}^{i= \text{ dimension }} +b`$.
-     - `$\tanh(w \cdot x +b)$`.
+     - $`\tanh(w \cdot x +b)`$.
 
 
   4. Creating the **Layer class** :
@@ -140,9 +140,9 @@ The data of a and b are: (2.0, -3)
      - Determining the number of outputs we expect from the input.
      - My description:
        
-        `$$((W^{(1)}, b^{(1)}),(W^{(2)}, b^{(2)}), \cdots, (W^{(s)}, b^{(s)})), $$`
+        $$`((W^{(1)}, b^{(1)}),(W^{(2)}, b^{(2)}), \cdots, (W^{(s)}, b^{(s)})),`$$
        
-      each element of above set acts on `$x$` (the number of outputs we expect is `$s$`). 
+      each element of above set acts on $`x`$ (the number of outputs we expect is $`s`$). 
      
 
 
