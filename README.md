@@ -143,7 +143,7 @@ The data of a and b are: (2.0, -3)
        
         $`\{(W^{(1)}, b^{(1)}),(W^{(2)}, b^{(2)}), \cdots, (W^{(s)}, b^{(s)})\},`$
        
-      each element of above set acts on $`x`$ (the number of outputs we expect is $`s`$).
+      each element of above set acts on $`X`$ (the number of outputs we expect is $`s`$). $W^{i}$ and $X$ have the same dimension.
       - Layer(4,6): has 4 inputs and 6 outputs for the one layer.
 
   6. Creating the **MLP class**:
