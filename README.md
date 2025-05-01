@@ -140,7 +140,7 @@ The data of a and b are: (2.0, -3)
      - Determining the number of outputs we expect from the input.
      - My description:
        
-        $$`\{(W^{(1)}, b^{(1)}),(W^{(2)}, b^{(2)}), \cdots, (W^{(s)}, b^{(s)})\},`$$
+        $`\{(W^{(1)}, b^{(1)}),(W^{(2)}, b^{(2)}), \cdots, (W^{(s)}, b^{(s)})\},`$
        
       each element of above set acts on $`x`$ (the number of outputs we expect is $`s`$). 
      
