@@ -130,6 +130,7 @@ The data of a and b are: (2.0, -3)
      - w and b are the random vectors which obey of uniform distribution.
      - Finding $`w \cdot x +b = \sum_{i=1}^{i= \text{ dimension }} +b`$.
      - $`\tanh(w \cdot x +b)`$.
+     - Neuron(4): has 4 inputs.
 
 
   4. Creating the **Layer class** :
@@ -142,7 +143,15 @@ The data of a and b are: (2.0, -3)
        
         $`\{(W^{(1)}, b^{(1)}),(W^{(2)}, b^{(2)}), \cdots, (W^{(s)}, b^{(s)})\},`$
        
-      each element of above set acts on $`x`$ (the number of outputs we expect is $`s`$). 
+      each element of above set acts on $`x`$ (the number of outputs we expect is $`s`$).
+      - Layer(4,6): has 4 inputs and 6 outputs for the one layer.
+
+  6. Creating the **MLP class**:
+
+     **Notes:**
+     - We have a couple of layers and each layers have neurons. The out put layer of the first calculation is the input layer for the next step.
+     - For MLP(4,[6,3,2]), 4 in the number of inputs, [6,3,2] means we wanna add three layers, and they have 6, 3, 2 neurons respectively.
+     - In the MLP(4,[6,3,2]) we have 2 hidden layers! 
      
 
 
