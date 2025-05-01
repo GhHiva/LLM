@@ -123,6 +123,40 @@ def draw_dot(root):
 
 
 
+class Neuron:
+    def __init__(self, nin):
+        self.w=[Value(random.uniform(-1,1)) for _ in range(nin)]
+        self.b= Value(random.uniform(-1,1))
+
+    def __call__(self, x):
+        # w*x+b
+        #sum(iterable, start=0)
+        a = sum((wi*xi for wi,xi in zip(self.w,x)),self.b)
+        out= a.tanh()
+        return out
+
+
+class Layer:
+    def __init__(self, nin, nout):
+        self.neu= [Neuron(nin) for _ in range(nout)]
+
+    def __call__(self, x):
+        out= [n(x) for n in self.neu]
+        return out
+
+class MLP:
+
+    def __init__(self, nin, nouts):
+        s= [nin]+ nouts
+        self.layer =[Layer(s[i],s[i+1]) for i in range(len(nouts))]
+
+    def __call__(self, x):
+        for layer in self.layer:
+            out =layer(x)
+        return out
+
+
+
 
 
 
