@@ -155,7 +155,9 @@ The data of a and b are: (2.0, -3)
      
 
 **Loss:** The outputs we find after the MLP can be our desired outputs or not. Since the weights and biases are random numbers, then we have a wide variety of numbers. In this case, we try to find out the predicted output as close as possible to the desired outputs. Means, we wanna reduce the difference between them, or we can say $\lim_t |y_{\text{pred}} - y_{\text{true}}| \to 0$.
-, where $t$ is the number of times we try!
+, where $t$ is the number of times we try! 
+- Loss is the accuracy of the prediction!
+- Ex: 
 
 Check the code in Example file:  ![loss](https://github.com/user-attachments/assets/55c03de5-da6a-40ef-bf8b-f1edea5d4479)
 
