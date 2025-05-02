@@ -13,3 +13,8 @@ loss = sum([(yy-y)**2 for y,yy in zip(y_true, y_pred)], Value(0.0))
 print(loss)
 loss.backward()
 print(draw_dot(loss).render('loss', format='png', cleanup= True))
+
+
+[Value(data=-0.9913847324644655), Value(data=0.9954933077175504), Value(data=-0.9999999994926582)]
+Value(data=106.01888074308778)
+loss.png
