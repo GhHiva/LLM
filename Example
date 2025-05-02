@@ -6,15 +6,32 @@ x_true= [
 ]
 y_true= [1.3, 9.7, 4.0]
 
-y_pred= [Neuron(4)(x) for x in x_true]
-print(y_pred)
+N = Neuron(4)
+M = MLP(4,[2,3,1])
+
+y_pred= [M(x) for x in x_true]
+print( f" y_pred is {y_pred}")
+
+print('-----------------')
+
+print(f" The weight of first neuron is {M.layer[0].neu[0].w[0]}")
+
+print('-----------------')
 
 loss = sum([(yy-y)**2 for y,yy in zip(y_true, y_pred)], Value(0.0))
-print(loss)
+print(f" loss is {loss} ")
+
+print('-----------------')
+
 loss.backward()
 print(draw_dot(loss).render('loss', format='png', cleanup= True))
 
 
-[Value(data=-0.9913847324644655), Value(data=0.9954933077175504), Value(data=-0.9999999994926582)]
-Value(data=106.01888074308778)
+
+y_pred is [Value(data=-1.0), Value(data=-0.9996712485628588), Value(data=-0.999999849436624)]
+-----------------
+ The weight of first neuron is Value(data=0.35859868590802146)
+-----------------
+ loss is Value(data=144.7729633216889) 
+-----------------
 loss.png
