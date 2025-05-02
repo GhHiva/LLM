@@ -154,7 +154,7 @@ The data of a and b are: (2.0, -3)
      - In the MLP(4,[6,3,2]) we have 2 hidden layers! 
      
 
-**Loss:** The outputs we find after the MLP can be our desired outputs or not. Since the weights and biases are random numbers, then we have a wide variety of numbers. In this case, we try to find out the predicted output as close as possible to the desired outputs. Means, we wanna reduce the difference between them, or we can say $\lim_{t} |( \text{ y_{pred} } - \text{ y_{true} })| \arrow 0$, where $t$ is the number of times we try!
+**Loss:** The outputs we find after the MLP can be our desired outputs or not. Since the weights and biases are random numbers, then we have a wide variety of numbers. In this case, we try to find out the predicted output as close as possible to the desired outputs. Means, we wanna reduce the difference between them, or we can say $ \text{ lim_{t} } |( \text{ y_{pred} } - \text{ y_{true} })| \arrow 0$, where $t$ is the number of times we try!
 
 _________________________________________________________
 2.makemore: Multilayer Perceptron: strating by two characters and predict the third one (Neural Network)
