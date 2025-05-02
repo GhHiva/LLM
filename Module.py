@@ -23,11 +23,11 @@ class Value:
         return out #return the output as the Value not just the plain number # It helps to just show the result without None statement
 
     def __neg__(self): # without this the code does not underestand the -2! I think since the sub works on the right side not left! in the case we just have one number!
-        return (self.data) * -1
+        return self * -1
 
 
     def __sub__(self, other):
-        out = self.data + ( - other.data )
+        out = self.data + ( - other )
         #print(f'This is sub : {out}')
         return Value(out)
 
@@ -46,15 +46,15 @@ class Value:
 
 
     def __truediv__(self, other): #python 3 use __truediv__ instead of __div__
-        out = self.data / other.data
+        out = self.data / other
         # print(f'This is div : {out}')
         return Value(out) # we can just use the return
 
     def __pow__(self, other):
-        out = Value (self.data ** other.data, (self,), f'^ {other}')
+        out = Value (self.data ** other, (self,), f'^ {other}')
         #print(f'This is pow : {out}')
         def _backwrd():
-            self.grad += out.grad * (other.data)* (self.data ** (other.data -1))
+            self.grad += out.grad * (other)* (self.data ** (other -1))
         out._backward = _backward
         return out
 
@@ -93,7 +93,7 @@ class Value:
             node._backward()
 
 
-
+###### Drawing #####
 
 def trace(root):
     nodes, edges = set(), set()
@@ -142,7 +142,7 @@ class Layer:
 
     def __call__(self, x):
         out= [n(x) for n in self.neu]
-        return out
+        return (out[0] if len(out)==1 else out) # at first I just returned the `out` but I found that when it is just one number it shows it as a list and we could not in loss function use the subtraction of list and float or int!
 
 class MLP:
 
