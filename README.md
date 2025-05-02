@@ -159,7 +159,7 @@ The data of a and b are: (2.0, -3)
 - Loss is the accuracy of the prediction!
 - Ex: 
 
-Check the code in Example file:  ![loss](https://github.com/user-attachments/assets/55c03de5-da6a-40ef-bf8b-f1edea5d4479)
+Check the code in Example file : ![loss](https://github.com/user-attachments/assets/623b2924-6ce8-45f9-ad0d-eced390fe45c)
 
 
 _________________________________________________________
