@@ -154,7 +154,7 @@ The data of a and b are: (2.0, -3)
      - In the MLP(4,[6,3,2]) we have 2 hidden layers! 
      
 
-**Loss:** The outputs we find after the MLP can be our desired outputs or not. Since the weights and biases are random numbers, then we have a wide variety of numbers. In this case, we try to find out the predicted output as close as possible to the desired outputs. Means, we wanna reduce the difference between them, or we can say as $t \to \infty$, we expect $\lim_t |y_{\text{pred}} - y_{\text{true}}| \to 0$.
+**Loss:** The outputs we find after the MLP can be our desired outputs or not. Since the weights and biases are random numbers, then we have a wide variety of numbers. In this case, we try to find out the predicted output as close as possible to the desired outputs. Means, we wanna reduce the difference between them, or we can say $\lim_t |y_{\text{pred}} - y_{\text{true}}| \to 0$.
 , where $t$ is the number of times we try!
 
 _________________________________________________________
