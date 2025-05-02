@@ -151,7 +151,7 @@ The data of a and b are: (2.0, -3)
      **Notes:**
      - We have a couple of layers and each layers have neurons. The out put layer of the first calculation is the input layer for the next step.
      - For MLP(4,[6,3,2]), 4 in the dimension of inputs, [6,3,2] means we wanna add three layers, and they have 6, 3, 2 neurons respectively.
-     - In the MLP(4,[6,3,2]) we have 2 hidden layers! 
+     
      
 
 **Loss:** The outputs we find after the MLP can be our desired outputs or not. Since the weights and biases are random numbers, then we have a wide variety of numbers. In this case, we try to find out the predicted output as close as possible to the desired outputs. Means, we wanna reduce the difference between them, or we can say $\lim_t |y_{\text{pred}} - y_{\text{true}}| \to 0$.
