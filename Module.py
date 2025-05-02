@@ -134,6 +134,9 @@ class Neuron:
         a = sum((wi*xi for wi,xi in zip(self.w,x)),self.b)
         out= a.tanh()
         return out
+        
+    def para(self):
+        return self.w+[self.b]
 
 
 class Layer:
@@ -143,6 +146,9 @@ class Layer:
     def __call__(self, x):
         out= [n(x) for n in self.neu]
         return (out[0] if len(out)==1 else out) # at first I just returned the `out` but I found that when it is just one number it shows it as a list and we could not in loss function use the subtraction of list and float or int!
+
+        def para(self):
+        return [ p for n in self.neu for p in n.para()]
 
 class MLP:
 
@@ -156,6 +162,8 @@ class MLP:
         return out
 
 
+    def para(self):
+        return [p for l in self.layer for p in l.para()]
 
 
 
