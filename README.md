@@ -168,9 +168,10 @@ Check the code in Example file : ![loss](https://github.com/user-attachments/ass
  2. Backward step:
      - loss.backward()
  3. Updating step:
-     - changing the parameters
-   
-  
+     - changing the parameters,
+
+ and repeating these steps until reaching to the desired output which is the minimizing the loss!
+ 
 _________________________________________________________
 2.makemore: Multilayer Perceptron: strating by two characters and predict the third one (Neural Network)
 
