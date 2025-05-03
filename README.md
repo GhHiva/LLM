@@ -161,7 +161,16 @@ The data of a and b are: (2.0, -3)
 
 Check the code in Example file : ![loss](https://github.com/user-attachments/assets/623b2924-6ce8-45f9-ad0d-eced390fe45c)
 
-
+## Steps for Optimizing:
+ 1. Forward step:
+     - Finding the list of y_preds based on the MLP you defined.
+     - Finding the loss value ==> loss = sum([(y_p - y_t)**2 for y_p, y_t in zip(y_pred - y_true)],0.0)
+ 2. Backward step:
+     - loss.backward()
+ 3. Updating step:
+     - changing the parameters
+   
+  
 _________________________________________________________
 2.makemore: Multilayer Perceptron: strating by two characters and predict the third one (Neural Network)
 
