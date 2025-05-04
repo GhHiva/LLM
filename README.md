@@ -1,6 +1,9 @@
 # LLM
 
-## micrograd_from_scratch:
+
+## MakeMore1:
+
+### micrograd_from_scratch:
 
 1. Creating the **Value class** :
 
@@ -173,7 +176,10 @@ Check the code in Example file : ![loss](https://github.com/user-attachments/ass
  and repeating these steps until reaching to the desired output which is the minimizing the loss!
  
 _________________________________________________________
-2.makemore: Multilayer Perceptron: strating by two characters and predict the third one (Neural Network)
+## MakeMore2: 
 
+- Multilayer Perceptron: strating by two characters and predict the third one (Neural Network)
 
-3.makemore: Multilayer Perceptron: strating by three characters and predict the fourth one (Neural Network)
+____________________________________________________________
+## MakeMore3: 
+- Multilayer Perceptron: strating by three characters and predict the fourth one (Neural Network)
