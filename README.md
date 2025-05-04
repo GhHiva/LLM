@@ -131,7 +131,7 @@ The data of a and b are: (2.0, -3)
      - w is the weight node which its dimensional depends to the input lenght vector.
      - b is a bias node which is one dimensional.
      - w and b are the random vectors which obey of uniform distribution.
-     - Finding $`w \cdot x +b = \sum_{i=1}^{i= \text{ dimension }} +b`$.
+     - Finding $`w \cdot x +b = \sum_{i=1}^{ \text{ dimension }} w_i x_i +b`$.
      - $`\tanh(w \cdot x +b)`$.
      - Neuron(4): has 4 inputs.
 
