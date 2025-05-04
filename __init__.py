@@ -1,1 +1,1 @@
-__all__=['draw_dot', 'trace','Value']
+__all__=['draw_dot', 'trace', 'Value', 'Layer', 'MLP']
