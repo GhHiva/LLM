@@ -173,7 +173,7 @@ Check the code in Example file : ![loss](https://github.com/user-attachments/ass
  3. Updating step:
      - changing the parameters,
 
- and repeating these steps until reaching to the desired output which is the minimizing the loss!
+ and repeating these steps until reaching to the desired output which is the minimizing the loss! check the Example3.
  
 _________________________________________________________
 ## MakeMore2: 
