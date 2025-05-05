@@ -186,7 +186,10 @@ _________________________________________________________
   - sorted(b.items): sorts based on the keys. for example ('S', 'a') goes first than ('S', 'e').
      - sorted(b.items(), reverse = True): for example ('S', 'e') goes before ('S', 'a').
      - sorted(b.items(), key = lambda kv: kv[1], reverse = True) :
-        - lambda kv: kv[1] : means focus on the value and then sort. since reverse is True, the sorting is descending.
+        - `lambda kv: kv[1]` : means focus on the value and then sort. since reverse is True, the sorting is descending.
+  - `''.join(words)`: sticks all names together
+  - `set(''.join(words))`: gives the set of unique alphabets that are contained in the ''.join(words)
+  - Define stoi={s:i for i , s in enumerate(set(''.join(words)))} => `s` is the `letter` and `i` is an `integer` from 0 to 25, here we represent each letter by the integer.
   - 
 ____________________________________________________________
 ## MakeMore3: 
