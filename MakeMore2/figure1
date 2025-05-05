@@ -1,4 +1,4 @@
-ch = sorted(set(''.join(words)))
+ch = sorted(set(''.join(words))) => words is the lines of names.txt
 stoi= {s:i for i,s in enumerate(ch)} => string to number
 
 stoi['<S>']=26
