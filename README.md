@@ -179,7 +179,15 @@ _________________________________________________________
 ## MakeMore2: 
 
 - Multilayer Perceptron: strating by two characters and predict the third one (Neural Network)
-
+**Notes:**
+  - list('emma') = ['e','m','m','a']
+  - ['<S>'] , ['<E>'] act like indicator to show where the start and end of word is.
+  - b.get(bigram,0): is used to show the values of the keys,. If there is no value it returns 0.
+  - sorted(b.items): sorts based on the keys. for example ('<S>', 'a') goes first than ('<S>', 'e').
+     - sorted(b.items(), reverse = True): for example ('<S>', 'e') goes before ('<S>', 'a').
+     - sorted(b.items(), key = lambda kv: kv[1], reverse = True) :
+        - lambda kv: kv[1] : means focus on the value and then sort. since reverse is True, the sorting is descending.
+  - 
 ____________________________________________________________
 ## MakeMore3: 
 - Multilayer Perceptron: strating by three characters and predict the fourth one (Neural Network)
