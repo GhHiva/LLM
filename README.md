@@ -193,6 +193,7 @@ _________________________________________________________
   - `torch.Generator()`: lets you control random number generation, especially useful when you want reproducibility in your experiments (e.g., for shuffling data or initializing weights). `local generator seeding`.
     
        * Key Points:
+         
              - It creates a random number generator that you can seed independently.
          
              - This is helpful when you want to use different seeds for different parts of your code without affecting the global state.
