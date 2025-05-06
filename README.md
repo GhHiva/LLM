@@ -190,7 +190,20 @@ _________________________________________________________
   - `''.join(words)`: sticks all names together
   - `set(''.join(words))`: gives the set of unique alphabets that are contained in the ''.join(words)
   - Define stoi={s:i for i , s in enumerate(set(''.join(words)))} => `s` is the `letter` and `i` is an `integer` from 0 to 25, here we represent each letter by the integer.
-  - 
+  - `torch.Generator()`: lets you control random number generation, especially useful when you want reproducibility in your experiments (e.g., for shuffling data or initializing weights). `local generator seeding`.
+       * Key Points:
+             - It creates a random number generator that you can seed independently.
+             - This is helpful when you want to use different seeds for different parts of your code without affecting the global state.
+             - This creates an `isolated random number generator`, separate from the global one.
+             - Only functions that explicitly use generator=g are affected by this seed. The global state is untouched, so other calls to `torch.rand() (without a generator) can behave independently`.
+       Ex: g = torch.Generator()
+
+           g.manual_seed(42) ==> It makes the random behavior repeatable. Every time you run your code with the same seed (42 here), you'll get the same random outputs from that generator.
+
+           rand_tensor = torch.rand(2, 2, generator=g) ==>  Use it in a random operation
+         
+  - `torch.manual_seed(42) — Global Seed`: This sets the seed for all random number generation in PyTorch `globally`.
+     - Any function that uses `randomness` (torch.rand, torch.randn, shuffling in DataLoader, etc.) will now give repeatable results `globally`.
 ____________________________________________________________
 ## MakeMore3: 
 - Multilayer Perceptron: strating by three characters and predict the fourth one (Neural Network)
