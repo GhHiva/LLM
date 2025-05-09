@@ -9,12 +9,19 @@
 
 **Notes :**
 🔺 `_op` : is used for showing the operations (it will be executed in graph. In the Value class, it's just the internal attribute.)
+
 🔺 `_children` : is used for storing the child of chain (it will be executed in graph. In the Value class, it's just the internal attribute.)
+
 🔺 `label` : is used for labeling the nodes
+
 🔺 `self._backward = lambda: None`, It's just the empty function!
+
 🔺  `isinstance(other, Value)`: is used to make sure other.data has Value type.
+
 🔺  `assert isinstance(other, (int, float)), 'only supporting int/float powers for now'` : is used to emphasize the type and pop up AssertionError 'only supporting int/float powers for now' if the verdict did not satisfied.
+
 🔺  `out._backward` = _backward : is used to just store the funcition. We do not want to execute the function!
+
 🔺 `backward(self)` : is used to collect the nodes
  
  **Example:**
@@ -46,7 +53,9 @@ The data of a and b are: (2.0, -3)
 ## Drawing the Chain of Calculations:
 
 **Notes:**
+
 🔺 `str(n)` vs `str(id(n))`:
+
     - `str(n)` calls the `__str__` or `__repr__` method of the object `n`. In class Value, we defined __repr__ so we have `Value(data=5.0)`. => NOT guaranteed unique (two different nodes with same data will have same string)
 
     - `id(n)` gives the `memory address of the object`, as an integer.
@@ -55,11 +64,15 @@ The data of a and b are: (2.0, -3)
 
       
 🔺 `'{%s | data %.4f | grad %.4f}' % (n.label, n.data, n.grad)`: It's an old form of formatting. The new one is `'{{{n.label}| data {n.data:.4f} | grad {n.grad:.4f}}}'`.
+
    - %s : Insert a string
 
 🔺 `dot.edge(str(id(n))+ n._op, str(id(n)))` vs `dot.edge(n._op, str(id(n)))`:
+
    - `dot.edge(n._op, str(id(n)))`: n._op is just the symbol not the unique node id. So it needs to specify which node id you want to work on. Without the unique name id for all same operations in the chain we just have one node and it crash the graph!
+     
    - `dot.edge(str(id(n))+ n._op, str(id(n)))`: str(id(n))+ n._op makes the unique id we need to have! It fakes the unique id for each operation by adding the node name. For example:
+     
       - "Value(data=5.0)+" and "Value(data=7.0)+" have the same operation `+` but identified by two different nodes.
 
   **Example:**
@@ -128,11 +141,17 @@ The data of a and b are: (2.0, -3)
      **Notes:**
      
      🔺 We defined the operations in Value class and how calculating their gradients. Now we need to make the nodes to start by initializing the weights and bias.
+     
      🔺 w is the weight node which its dimensional depends to the input lenght vector.
+     
      🔺 b is a bias node which is one dimensional.
+     
      🔺 w and b are the random vectors which obey of uniform distribution.
+     
      🔺 Finding $`w \cdot x +b = \sum_{i=1}^{ \text{ dimension }} w_i x_i +b`$.
+     
      🔺 $`\tanh(w \cdot x +b)`$.
+     
      🔺 Neuron(4): has 4 inputs.
 
 
@@ -141,25 +160,31 @@ The data of a and b are: (2.0, -3)
      **Notes:**
      
      🔺 After creating the nodes, the turn is for making the layers which are pushing the inputs forward to the outputs.
+     
      🔺 Determining the number of outputs we expect from the input.
+     
      🔺 My description:
        
         $`\{(W^{(1)}, b^{(1)}),(W^{(2)}, b^{(2)}), \cdots, (W^{(s)}, b^{(s)})\},`$
        
       each element of above set acts on $`X`$ (the number of outputs we expect is $`s`$). $W^{(i)}$ and $X$ have the same dimension.
+     
       🔺 Layer(4,6): has 4 inputs and 6 outputs for the one layer.
 
   6. Creating the **MLP class**:
 
      **Notes:**
      🔺 We have a couple of layers and each layers have neurons. The out put layer of the first calculation is the input layer for the next step.
+     
      🔺 For MLP(4,[6,3,2]), 4 in the dimension of inputs, [6,3,2] means we wanna add three layers, and they have 6, 3, 2 neurons respectively.
      
      
 
 **Loss:** The outputs we find after the MLP can be our desired outputs or not. Since the weights and biases are random numbers, then we have a wide variety of numbers. In this case, we try to find out the predicted output as close as possible to the desired outputs. Means, we wanna reduce the difference between them, or we can say $\lim_t |y_{\text{pred}} - y_{\text{true}}| \to 0$.
 , where $t$ is the number of times we try! 
+
 🔺 Loss is the accuracy of the prediction!
+
 🔺 Ex: 
 
 Check the code in Example file : ![loss](https://github.com/user-attachments/assets/623b2924-6ce8-45f9-ad0d-eced390fe45c)
@@ -169,8 +194,10 @@ Check the code in Example file : ![loss](https://github.com/user-attachments/ass
  1️⃣ Forward step:
      - Finding the list of y_preds based on the MLP you defined.
      - Finding the loss value ==> loss = sum([(y_p - y_t)**2 for y_p, y_t in zip(y_pred - y_true)],0.0)
+     
  2️⃣ Backward step:
      - loss.backward()
+     
  3️⃣ Updating step:
      - changing the parameters,
 
@@ -182,41 +209,51 @@ _________________________________________________________
 - Multilayer Perceptron: strating by two characters and predict the third one (Neural Network)
 **Notes:**
   🔺 list('emma') = ['e','m','m','a']
+  
   🔺 'S' and 'E' act like indicator to show where the start and end of word is.
+  
   🔺 b.get(bigram,0): is used to show the values of the keys,. If there is no value it returns 0.
+  
   🔺 sorted(b.items): sorts based on the keys. for example ('S', 'a') goes first than ('S', 'e').
+  
      - sorted(b.items(), reverse = True): for example ('S', 'e') goes before ('S', 'a').
      - sorted(b.items(), key = lambda kv: kv[1], reverse = True) :
         - `lambda kv: kv[1]` : means focus on the value and then sort. since reverse is True, the sorting is descending.
+          
   🔺`''.join(words)`: sticks all names together
+
   🔺`set(''.join(words))`: gives the set of unique alphabets that are contained in the ''.join(words)
+  
   🔺 Define stoi={s:i for i , s in enumerate(set(''.join(words)))} => `s` is the `letter` and `i` is an `integer` from 0 to 25, here we represent each letter by the integer.
+  
     🔺`torch.Generator()` vs `torch.manual_seed(42)`:
     
        - `torch.Generator()`: lets you control random number generation, especially useful when you want reproducibility in your experiments (e.g., for shuffling data or initializing weights). `local generator seeding`.
     
-          * Key Points:
+  * Key Points:
          
-             - It creates a random number generator that you can seed independently.
+    - It creates a random number generator that you can seed independently.
          
-             - This is helpful when you want to use different seeds for different parts of your code without affecting the global state.
+    - This is helpful when you want to use different seeds for different parts of your code without affecting the global state.
          
-             - This creates an `isolated random number generator`, separate from the global one.
+    - This creates an `isolated random number generator`, separate from the global one.
          
-             - Only functions that explicitly use generator=g are affected by this seed. The global state is untouched, so other calls to `torch.rand() (without a generator) can behave independently`.
+    - Only functions that explicitly use generator=g are affected by this seed. The global state is untouched, so other calls to `torch.rand() (without a generator) can behave independently`.
          
-             Ex: g = torch.Generator()
+     Ex: g = torch.Generator()
 
-                       g.manual_seed(42) ==> It makes the random behavior repeatable. Every time you run your code with the same seed (42 here), you'll get the same random outputs from that generator.
+    g.manual_seed(42) ==> It makes the random behavior repeatable. Every time you run your code with the same seed (42 here), you'll get the same random outputs from that generator.
 
-                       rand_tensor = torch.rand(2, 2, generator=g) ==>  Use it in a random operation
+    rand_tensor = torch.rand(2, 2, generator=g) ==>  Use it in a random operation
          
-      - `torch.manual_seed(42) — Global Seed`: This sets the seed for all random number generation in PyTorch `globally`.
+     - `torch.manual_seed(42) — Global Seed`: This sets the seed for all random number generation in PyTorch `globally`.
     
           Ex: Any function that uses `randomness` (torch.rand, torch.randn, shuffling in DataLoader, etc.) will now give repeatable results `globally`.
  
     🔺 `torch.distributions.Multinomial` vs `torch.multinomial` :
+  
        - torch.distributions.Multinomial: A distribution class from torch.distributions. It's object-oriented and supports methods like .sample() and .log_prob(). Use Case: Sample multiple times from a categorical distribution in a single call. Work with probabilistic modeling, including computing log-probabilities.
+         
        - torch.multinomial: A function, not a distribution. It samples from a categorical distribution (or draws without replacement), similar to drawing lottery tickets. Use Case: Just need to sample indices according to given probabilities. Don't need log-probabilities or to create a full distribution object.
 
 ____________________________________________________________
