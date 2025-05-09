@@ -190,9 +190,11 @@ _________________________________________________________
   - `''.join(words)`: sticks all names together
   - `set(''.join(words))`: gives the set of unique alphabets that are contained in the ''.join(words)
   - Define stoi={s:i for i , s in enumerate(set(''.join(words)))} => `s` is the `letter` and `i` is an `integer` from 0 to 25, here we represent each letter by the integer.
-  - `torch.Generator()`: lets you control random number generation, especially useful when you want reproducibility in your experiments (e.g., for shuffling data or initializing weights). `local generator seeding`.
+  - `torch.Generator()` vs `torch.manual_seed(42)`:
     
-       * Key Points:
+       - `torch.Generator()`: lets you control random number generation, especially useful when you want reproducibility in your experiments (e.g., for shuffling data or initializing weights). `local generator seeding`.
+    
+          * Key Points:
          
              - It creates a random number generator that you can seed independently.
          
@@ -202,15 +204,20 @@ _________________________________________________________
          
              - Only functions that explicitly use generator=g are affected by this seed. The global state is untouched, so other calls to `torch.rand() (without a generator) can behave independently`.
          
-       Ex: g = torch.Generator()
+             Ex: g = torch.Generator()
 
-           g.manual_seed(42) ==> It makes the random behavior repeatable. Every time you run your code with the same seed (42 here), you'll get the same random outputs from that generator.
+                       g.manual_seed(42) ==> It makes the random behavior repeatable. Every time you run your code with the same seed (42 here), you'll get the same random outputs from that generator.
 
-           rand_tensor = torch.rand(2, 2, generator=g) ==>  Use it in a random operation
+                       rand_tensor = torch.rand(2, 2, generator=g) ==>  Use it in a random operation
          
-  - `torch.manual_seed(42) — Global Seed`: This sets the seed for all random number generation in PyTorch `globally`.
+      - `torch.manual_seed(42) — Global Seed`: This sets the seed for all random number generation in PyTorch `globally`.
     
-     - Any function that uses `randomness` (torch.rand, torch.randn, shuffling in DataLoader, etc.) will now give repeatable results `globally`.
+          Ex: Any function that uses `randomness` (torch.rand, torch.randn, shuffling in DataLoader, etc.) will now give repeatable results `globally`.
+ 
+  - `torch.distributions.Multinomial` vs `torch.multinomial` :
+       - torch.distributions.Multinomial: A distribution class from torch.distributions. It's object-oriented and supports methods like .sample() and .log_prob(). Use Case: Sample multiple times from a categorical distribution in a single call. Work with probabilistic modeling, including computing log-probabilities.
+       - torch.multinomial: A function, not a distribution. It samples from a categorical distribution (or draws without replacement), similar to drawing lottery tickets. Use Case: Just need to sample indices according to given probabilities. Don't need log-probabilities or to create a full distribution object.
+
 ____________________________________________________________
 ## MakeMore3: 
 - Multilayer Perceptron: strating by three characters and predict the fourth one (Neural Network)
