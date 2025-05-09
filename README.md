@@ -8,6 +8,7 @@
 1. Creating the **Value class** :
 
 **Notes :**
+
 🔺 `_op` : is used for showing the operations (it will be executed in graph. In the Value class, it's just the internal attribute.)
 
 🔺 `_children` : is used for storing the child of chain (it will be executed in graph. In the Value class, it's just the internal attribute.)
@@ -174,6 +175,7 @@ The data of a and b are: (2.0, -3)
   6. Creating the **MLP class**:
 
      **Notes:**
+     
      🔺 We have a couple of layers and each layers have neurons. The out put layer of the first calculation is the input layer for the next step.
      
      🔺 For MLP(4,[6,3,2]), 4 in the dimension of inputs, [6,3,2] means we wanna add three layers, and they have 6, 3, 2 neurons respectively.
@@ -207,7 +209,9 @@ _________________________________________________________
 ## MakeMore2: 
 
 - Multilayer Perceptron: strating by two characters and predict the third one (Neural Network)
+  
 **Notes:**
+  
   🔺 list('emma') = ['e','m','m','a']
   
   🔺 'S' and 'E' act like indicator to show where the start and end of word is.
@@ -215,10 +219,9 @@ _________________________________________________________
   🔺 b.get(bigram,0): is used to show the values of the keys,. If there is no value it returns 0.
   
   🔺 sorted(b.items): sorts based on the keys. for example ('S', 'a') goes first than ('S', 'e').
-  
-     - sorted(b.items(), reverse = True): for example ('S', 'e') goes before ('S', 'a').
-     - sorted(b.items(), key = lambda kv: kv[1], reverse = True) :
-        - `lambda kv: kv[1]` : means focus on the value and then sort. since reverse is True, the sorting is descending.
+       - sorted(b.items(), reverse = True): for example ('S', 'e') goes before ('S', 'a').
+       - sorted(b.items(), key = lambda kv: kv[1], reverse = True) :
+          - `lambda kv: kv[1]` : means focus on the value and then sort. since reverse is True, the sorting is descending.
           
   🔺`''.join(words)`: sticks all names together
 
@@ -226,7 +229,7 @@ _________________________________________________________
   
   🔺 Define stoi={s:i for i , s in enumerate(set(''.join(words)))} => `s` is the `letter` and `i` is an `integer` from 0 to 25, here we represent each letter by the integer.
   
-    🔺`torch.Generator()` vs `torch.manual_seed(42)`:
+  🔺`torch.Generator()` vs `torch.manual_seed(42)`:
     
        - `torch.Generator()`: lets you control random number generation, especially useful when you want reproducibility in your experiments (e.g., for shuffling data or initializing weights). `local generator seeding`.
     
