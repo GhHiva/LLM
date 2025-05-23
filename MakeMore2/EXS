@@ -115,3 +115,142 @@ Value 12 appears 2 times
 Value 13 appears 2 times
 Value 5 appears 2 times
 Value 22 appears 1 times
+
+---------------------------------------------
+---------------------------------------------
+
+for i in range(10):
+    ix=0
+    out=[]
+    while True:
+        p= N[ix].float()
+        p= p/p.sum()
+        ix= torch.multinomial(p, num_samples=1, replacement=True, generator=g).item()
+        out.append(itos[ix])
+        print(ix, itos[ix], out)
+
+        if ix==0:
+         break
+    print(''.join(out))
+
+____________________
+
+10 j ['j']
+21 u ['j', 'u']
+7 g ['j', 'u', 'g']
+5 e ['j', 'u', 'g', 'e']
+5 e ['j', 'u', 'g', 'e', 'e']
+14 n ['j', 'u', 'g', 'e', 'e', 'n']
+22 v ['j', 'u', 'g', 'e', 'e', 'n', 'v']
+9 i ['j', 'u', 'g', 'e', 'e', 'n', 'v', 'i']
+0 . ['j', 'u', 'g', 'e', 'e', 'n', 'v', 'i', '.']
+jugeenvi.
+19 s ['s']
+0 . ['s', '.']
+s.
+13 m ['m']
+1 a ['m', 'a']
+2 b ['m', 'a', 'b']
+9 i ['m', 'a', 'b', 'i']
+1 a ['m', 'a', 'b', 'i', 'a']
+14 n ['m', 'a', 'b', 'i', 'a', 'n']
+0 . ['m', 'a', 'b', 'i', 'a', 'n', '.']
+mabian.
+4 d ['d']
+1 a ['d', 'a']
+14 n ['d', 'a', 'n']
+0 . ['d', 'a', 'n', '.']
+dan.
+19 s ['s']
+20 t ['s', 't']
+1 a ['s', 't', 'a']
+14 n ['s', 't', 'a', 'n']
+0 . ['s', 't', 'a', 'n', '.']
+stan.
+19 s ['s']
+9 i ['s', 'i']
+12 l ['s', 'i', 'l']
+1 a ['s', 'i', 'l', 'a']
+25 y ['s', 'i', 'l', 'a', 'y']
+12 l ['s', 'i', 'l', 'a', 'y', 'l']
+5 e ['s', 'i', 'l', 'a', 'y', 'l', 'e']
+12 l ['s', 'i', 'l', 'a', 'y', 'l', 'e', 'l']
+1 a ['s', 'i', 'l', 'a', 'y', 'l', 'e', 'l', 'a']
+18 r ['s', 'i', 'l', 'a', 'y', 'l', 'e', 'l', 'a', 'r']
+5 e ['s', 'i', 'l', 'a', 'y', 'l', 'e', 'l', 'a', 'r', 'e']
+13 m ['s', 'i', 'l', 'a', 'y', 'l', 'e', 'l', 'a', 'r', 'e', 'm']
+1 a ['s', 'i', 'l', 'a', 'y', 'l', 'e', 'l', 'a', 'r', 'e', 'm', 'a']
+8 h ['s', 'i', 'l', 'a', 'y', 'l', 'e', 'l', 'a', 'r', 'e', 'm', 'a', 'h']
+0 . ['s', 'i', 'l', 'a', 'y', 'l', 'e', 'l', 'a', 'r', 'e', 'm', 'a', 'h', '.']
+silaylelaremah.
+12 l ['l']
+9 i ['l', 'i']
+0 . ['l', 'i', '.']
+li.
+12 l ['l']
+5 e ['l', 'e']
+0 . ['l', 'e', '.']
+le.
+5 e ['e']
+16 p ['e', 'p']
+9 i ['e', 'p', 'i']
+1 a ['e', 'p', 'i', 'a']
+3 c ['e', 'p', 'i', 'a', 'c']
+8 h ['e', 'p', 'i', 'a', 'c', 'h']
+1 a ['e', 'p', 'i', 'a', 'c', 'h', 'a']
+12 l ['e', 'p', 'i', 'a', 'c', 'h', 'a', 'l']
+5 e ['e', 'p', 'i', 'a', 'c', 'h', 'a', 'l', 'e']
+14 n ['e', 'p', 'i', 'a', 'c', 'h', 'a', 'l', 'e', 'n']
+0 . ['e', 'p', 'i', 'a', 'c', 'h', 'a', 'l', 'e', 'n', '.']
+epiachalen.
+4 d ['d']
+9 i ['d', 'i']
+26 z ['d', 'i', 'z']
+1 a ['d', 'i', 'z', 'a']
+0 . ['d', 'i', 'z', 'a', '.']
+diza.
+
+
+
+
+-----------------------------------------------
+-----------------------------------------------
+
+
+log_likelihood=0.0
+n=0
+for w in words[:3]:
+    chars=['.']+list(w)+['.']
+    for ch1,ch2 in zip(chars,chars[1:]):
+        ix1= stoi[ch1]
+        ix2= stoi[ch2]
+        prob= N[ix1,ix2]/N[ix1].sum()
+        logprob=torch.log(prob)
+        log_likelihood+=logprob
+        n+=1
+        print(f"ch1ch2 is {ch1}{ch2}; prob is {prob:.4f}, and logprob is {logprob:.4f}")
+print(log_likelihood)
+null= - log_likelihood
+print(f"null is {null}")
+print(f"null/n is {null/n}")
+______________________________
+
+ch1ch2 is .e; prob is 0.0478, and logprob is -3.0408
+ch1ch2 is em; prob is 0.0377, and logprob is -3.2793
+ch1ch2 is mm; prob is 0.0253, and logprob is -3.6772
+ch1ch2 is ma; prob is 0.3899, and logprob is -0.9418
+ch1ch2 is a.; prob is 0.1960, and logprob is -1.6299
+ch1ch2 is .o; prob is 0.0123, and logprob is -4.3982
+ch1ch2 is ol; prob is 0.0780, and logprob is -2.5508
+ch1ch2 is li; prob is 0.1777, and logprob is -1.7278
+ch1ch2 is iv; prob is 0.0152, and logprob is -4.1867
+ch1ch2 is vi; prob is 0.3541, and logprob is -1.0383
+ch1ch2 is ia; prob is 0.1381, and logprob is -1.9796
+ch1ch2 is a.; prob is 0.1960, and logprob is -1.6299
+ch1ch2 is .a; prob is 0.1377, and logprob is -1.9829
+ch1ch2 is av; prob is 0.0246, and logprob is -3.7045
+ch1ch2 is va; prob is 0.2495, and logprob is -1.3882
+ch1ch2 is a.; prob is 0.1960, and logprob is -1.6299
+tensor(-38.7856)
+null is 38.78563690185547
+null/n is 2.424102306365967
