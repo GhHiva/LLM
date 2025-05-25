@@ -52,3 +52,6 @@
   
   - torch.distributions.Multinomial: A distribution class from torch.distributions. It's object-oriented and supports methods like .sample() and .log_prob(). Use Case: Sample multiple times from a categorical distribution in a single call. Work with probabilistic modeling, including computing log-probabilities.
 - torch.multinomial: A function, not a distribution. It samples from a categorical distribution (or draws without replacement), similar to drawing lottery tickets. Use Case: Just need to sample indices according to given probabilities. Don't need log-probabilities or to create a full distribution object.
+
+ 🔺 Quality of a model by Likelihood: the high negative likihood the better estimation.
+ 
