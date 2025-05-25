@@ -191,4 +191,4 @@ ch1ch2 is `oq`; prob is `0.0004`, and logprob is -7.8803 => makes worse
 ch1ch2 is q.; prob is 0.1029, and logprob is -2.2736
 tensor(-32.0696)
 null is 32.06963348388672
-null/n is 4.00870418548584
+null/n is 4.00870418548584 => much more than 2.454094171524048!
