@@ -187,7 +187,7 @@ ch1ch2 is `iw`; prob is `0.0005`, and logprob is -7.7019 => makes worse
 ch1ch2 is wa; prob is 0.3014, and logprob is -1.1993
 ch1ch2 is `aj`; prob is `0.0052`, and logprob is -5.2659 => makes worse
 ch1ch2 is jo; prob is 0.1652, and logprob is -1.8008
-ch1ch2 is `oq`; prob is 0.`0004`, and logprob is -7.8803 => makes worse
+ch1ch2 is `oq`; prob is `0.0004`, and logprob is -7.8803 => makes worse
 ch1ch2 is q.; prob is 0.1029, and logprob is -2.2736
 tensor(-32.0696)
 null is 32.06963348388672
